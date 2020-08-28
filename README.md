@@ -1,6 +1,6 @@
 # README
 
-## admins(管理者)
+## masters(管理者)
 
 | Column   |Type    | Options     |
 | -------- |------- | ----------- |
@@ -34,13 +34,13 @@
 | ------------ |----------- | ------------------------------ |
 | name         | string     | null: false                    |
 | residence    | references | null: false, foreign_key: true |
-| admin        | references | null: false, foreign_key: true |
+| master       | references | null: false, foreign_key: true |
 | message      | text       |                                |
 | image        | string     |                                |
 | move         | string     |                                |
 
 ### Association
-belongs_to : admin
+belongs_to : master
 belongs_to : residence
 
 
@@ -63,13 +63,13 @@ belongs_to : residence
 | ------------ |----------- | ------------------------------ |
 | name         | string     | null: false                    |
 | apartment    | references | null: false, foreign_key: true |
-| admin        | references | null: false, foreign_key: true |
+| master       | references | null: false, foreign_key: true |
 | message      | text       |                                |
 | image        | string     |                                |
 | move         | string     |                                |
 
 ### Association
-belongs_to : admin
+belongs_to : master
 belongs_to : apartment
 
 
@@ -79,10 +79,10 @@ belongs_to : apartment
 | ------------ | ---------- | ------------------------------ |
 | title        | string     | null: false                    |
 | content      | text       | null: false                    |
-| admin        | references | null: false, foreign_key: true | 
+| master       | references | null: false, foreign_key: true | 
 
 ### Association
-- belongs_to : admin
+- belongs_to : master
 
 ## notices（お知らせ）
 
@@ -90,10 +90,10 @@ belongs_to : apartment
 | ------------ | ----------- | ------------------------------ |
 | title        | string      | null: false                    |
 | content      | text        | null: false                    |
-| admin        | references  | null: false, foreign_key: true |
+| master       | references  | null: false, foreign_key: true |
 
 ### Association
-- belongs_to : admin
+- belongs_to : master
 - has_many : notice_tags
 - has_many : tags, through: :notice_tags
 
