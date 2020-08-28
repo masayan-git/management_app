@@ -1,123 +1,24 @@
 # README
 
-## admins(管理者)
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column   |Type    | Options     |
-| -------- |------- | ----------- |
-| name     |string  | null: false |
-| email    |string  | null: false |
-| password |integer | null: false |
+Things you may want to cover:
 
-### Association
-- has_many : chatroom_residences
-- has_many : chatroom_apartment
-- has_many : articles
-- has_many : notices
+* Ruby version
 
-## residences(user 入居者)
+* System dependencies
 
-| Column       |Type      | Options     |
-| ------------ |--------- | ----------- |
-| name         | string   | null: false |
-| email        | string   | null: false |
-| password     | integer  | null: false |
-| room_num     | integer  | null: false |
-| phone_number | integer  | null: false |
+* Configuration
 
-### Association
-- has_one  : chatroom_residences
+* Database creation
 
+* Database initialization
 
-## chatroom_residences(管理者とresidence入居者 １対１のチャットルーム)
+* How to run the test suite
 
-| Column       |Type        | Options                        |
-| ------------ |----------- | ------------------------------ |
-| name         | string     | null: false                    |
-| residence    | references | null: false, foreign_key: true |
-| admin        | references | null: false, foreign_key: true |
-| message      | text       |                                |
-| image        | string     |                                |
-| move         | string     |                                |
+* Services (job queues, cache servers, search engines, etc.)
 
-### Association
-belongs_to : admin
-belongs_to : residence
+* Deployment instructions
 
-
-
-## apartments(user 入居者)
-
-| Column       |Type      | Options     |
-| ------------ |--------- | ----------- |
-| name         | string   | null: false |
-| email        | string   | null: false |
-| password     | integer  | null: false |
-| room_num     | integer  | null: false |
-| phone_number | integer  | null: false |
-
-### Association
-- has_one  : chatroom_apartment
-
-## chatroom_apartment(管理者とapartment入居者 １対１のチャットルーム)
-| Column       |Type        | Options                        |
-| ------------ |----------- | ------------------------------ |
-| name         | string     | null: false                    |
-| apartment    | references | null: false, foreign_key: true |
-| admin        | references | null: false, foreign_key: true |
-| message      | text       |                                |
-| image        | string     |                                |
-| move         | string     |                                |
-
-### Association
-belongs_to : admin
-belongs_to : apartment
-
-
-## articles（コラム記事）
-
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| title        | string     | null: false                    |
-| content      | text       | null: false                    |
-| admin        | references | null: false, foreign_key: true | 
-
-### Association
-- belongs_to : admin
-
-## notices（お知らせ）
-
-| Column       | Type        | Options                        |
-| ------------ | ----------- | ------------------------------ |
-| title        | string      | null: false                    |
-| content      | text        | null: false                    |
-| admin        | references  | null: false, foreign_key: true |
-
-### Association
-- belongs_to : admin
-- has_many : notice_tags
-- has_many : tags, through: :notice_tags
-
-## tags(お知らせのタグ)
-
-| Column       | Type      | Options                       |
-| ------------ | --------- | ----------------------------- |
-| name         | string    | null: false, uniqueness: true |
-
-### Association
-- has_many : notice_tags
-- has_many : notices, through: :notice_tags
-
-
-
-## notice_tags（中間テーブル）
-
-| Column  | Type       | Options                        |
-| ------- | ---------  | -----------------------------  |
-| notice  | references | null: false, foreign_key: true |
-| tag     | references | null: false, foreign_key: true |
-
-### Association
-belongs_to : notice
-belongs_to : tag
-
-
+* ...
