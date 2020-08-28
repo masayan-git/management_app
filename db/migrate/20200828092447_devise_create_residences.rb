@@ -4,6 +4,9 @@ class DeviseCreateResidences < ActiveRecord::Migration[6.0]
   def change
     create_table :residences do |t|
       ## Database authenticatable
+      t.string :name, null:false
+      t.integer :room_num, null:false
+      t.integer :phone_number, null:false
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 

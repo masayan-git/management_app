@@ -1,0 +1,2 @@
+module Apartments::ArticlesHelper
+end

@@ -1,0 +1,2 @@
+module Residences::ArticlesHelper
+end

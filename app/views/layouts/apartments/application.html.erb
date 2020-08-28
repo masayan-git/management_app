@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ManagementApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1> apartments </h1>
+    <% if apartments_signed_in? %>
+      <%= "LogOnUser: #{current_apartments.email}" %>
+      <%= link_to 'SignOut', destroy_apartment_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'SingUp', new_apartment_registration_path %>
+    <%= link_to 'SignIn', new_apartment_session_path %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ManagementApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1> masters </h1>
+    <% if master_signed_in? %>
+      <%= "LogOnUser: #{current_master.email}" %>
+      <%= link_to 'SignOut', destroy_master_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'SingUp', new_master_registration_path %>
+    <%= link_to 'SignIn', new_master_session_path %>
+    <%= yield %>
+  </body>
+</html>

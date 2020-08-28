@@ -16,13 +16,13 @@
 
 ## residences(user 入居者)
 
-| Column       |Type      | Options     |
-| ------------ |--------- | ----------- |
-| name         | string   | null: false |
-| email        | string   | null: false |
-| password     | integer  | null: false |
-| room_num     | integer  | null: false |
-| phone_number | integer  | null: false |
+| Column       |Type      | Options                       |
+| ------------ |--------- | ----------------------------- |
+| name         | string   | null: false                   |
+| email        | string   | null: false                   |
+| password     | integer  | null: false                   |
+| room_num     | integer  | null: false, uniqueness: true |
+| phone_number | integer  | null: false                   |
 
 ### Association
 - has_one  : chatroom_residences
@@ -47,13 +47,13 @@ belongs_to : residence
 
 ## apartments(user 入居者)
 
-| Column       |Type      | Options     |
-| ------------ |--------- | ----------- |
-| name         | string   | null: false |
-| email        | string   | null: false |
-| password     | integer  | null: false |
-| room_num     | integer  | null: false |
-| phone_number | integer  | null: false |
+| Column       |Type      | Options                       |
+| ------------ |--------- | ----------------------------- |
+| name         | string   | null: false                   |
+| email        | string   | null: false                   |
+| password     | integer  | null: false                   |
+| room_num     | integer  | null: false, uniqueness: true |
+| phone_number | integer  | null: false                   |
 
 ### Association
 - has_one  : chatroom_apartment
