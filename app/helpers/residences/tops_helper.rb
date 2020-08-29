@@ -1,0 +1,2 @@
+module Residences::TopsHelper
+end

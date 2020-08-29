@@ -8,10 +8,12 @@ Rails.application.routes.draw do
 
   namespace :residences do
     resources :articles, only: [:index, :show]
+    resources :tops, only: [:index]
   end
 
   namespace :apartments do
     resources :articles, only: [:index, :show]
+    resources :tops, only: [:index]
   end
 
   devise_for :masters, controllers: {
