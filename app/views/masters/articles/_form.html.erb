@@ -1,4 +1,4 @@
-<%= form_with(model: masters_article, local: true) do |form| %>
+<%= form_with(model: [:masters, masters_article], local: true) do |form| %>
   <% if masters_article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(masters_article.errors.count, "error") %> prohibited this masters_article from being saved:</h2>
@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="actions">
+    <%= form.text_area :title %>
+    <%= form.text_area :content %>
+
     <%= form.submit %>
   </div>
 <% end %>

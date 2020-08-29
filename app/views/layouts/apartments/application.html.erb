@@ -11,12 +11,13 @@
 
   <body>
     <h1> apartments </h1>
-    <% if apartments_signed_in? %>
-      <%= "LogOnUser: #{current_apartments.email}" %>
+    <% if apartment_signed_in? %>
+      <%= "LogOnUser: #{current_apartment.email}" %>
       <%= link_to 'SignOut', destroy_apartment_session_path, method: :delete %>
     <% else %>
-    <%= link_to 'SingUp', new_apartment_registration_path %>
-    <%= link_to 'SignIn', new_apartment_session_path %>
+      <%= link_to 'SingUp', new_apartment_registration_path %>
+      <%= link_to 'SignIn', new_apartment_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

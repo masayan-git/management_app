@@ -5,6 +5,7 @@ class Apartments::ArticlesController < Apartments::ApplicationController
   # GET /apartments/articles.json
   def index
     @apartments_articles = Article.all
+    # binding.pry
   end
 
   # GET /apartments/articles/1
@@ -64,6 +65,7 @@ class Apartments::ArticlesController < Apartments::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_apartments_article
+      # binding.pry
       @apartments_article = Article.find(params[:id])
     end
 

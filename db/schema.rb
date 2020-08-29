@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_101929) do
+ActiveRecord::Schema.define(version: 2020_08_29_043816) do
 
   create_table "apartments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "room_num", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_101929) do
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "room_num", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

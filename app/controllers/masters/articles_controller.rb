@@ -14,7 +14,7 @@ class Masters::ArticlesController < Masters::ApplicationController
 
   # GET /masters/articles/new
   def new
-    @masters_article = Masters::Article.new
+    @masters_article = Article.new
   end
 
   # GET /masters/articles/1/edit
@@ -24,11 +24,12 @@ class Masters::ArticlesController < Masters::ApplicationController
   # POST /masters/articles
   # POST /masters/articles.json
   def create
-    @masters_article = Masters::Article.new(masters_article_params)
+    @masters_article = Article.new(masters_article_params)
 
     respond_to do |format|
+      # binding.pry
       if @masters_article.save
-        format.html { redirect_to [:admins, @masters_article], notice: 'Article was successfully created.' }
+        format.html { redirect_to [:masters, @masters_article], notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @masters_article }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class Masters::ArticlesController < Masters::ApplicationController
   def update
     respond_to do |format|
       if @masters_article.update(masters_article_params)
-        format.html { redirect_to @masters_article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to [:masters, @masters_article], notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @masters_article }
       else
         format.html { render :edit }
@@ -64,11 +65,13 @@ class Masters::ArticlesController < Masters::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_masters_article
-      @masters_article = Masters::Article.find(params[:id])
+      @masters_article = Article.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def masters_article_params
-      params.fetch(:masters_article, {})
+    params.require(:article).permit(:title, :content).merge(master_id: current_master.id)
+      
+      # params.fetch(:masters_article, {})
     end
 end

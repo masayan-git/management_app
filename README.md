@@ -22,7 +22,7 @@
 | email        | string   | null: false                   |
 | password     | integer  | null: false                   |
 | room_num     | integer  | null: false, uniqueness: true |
-| phone_number | integer  | null: false                   |
+| phone_number | string   | null: false                   |
 
 ### Association
 - has_one  : chatroom_residences
@@ -53,7 +53,7 @@ belongs_to : residence
 | email        | string   | null: false                   |
 | password     | integer  | null: false                   |
 | room_num     | integer  | null: false, uniqueness: true |
-| phone_number | integer  | null: false                   |
+| phone_number | string   | null: false                   |
 
 ### Association
 - has_one  : chatroom_apartment

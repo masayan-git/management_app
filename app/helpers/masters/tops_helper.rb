@@ -1,0 +1,2 @@
+module Masters::TopsHelper
+end

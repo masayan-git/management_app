@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
+
   namespace :masters do
     resources :articles
+    resources :tops, only: [:index]
   end
 
   namespace :residences do

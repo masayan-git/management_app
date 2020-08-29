@@ -15,8 +15,9 @@
       <%= "LogOnUser: #{current_residence.email}" %>
       <%= link_to 'SignOut', destroy_residence_session_path, method: :delete %>
     <% else %>
-    <%= link_to 'SingUp', new_residence_registration_path %>
-    <%= link_to 'SignIn', new_residence_session_path %>
+      <%= link_to 'SingUp', new_residence_registration_path %>
+      <%= link_to 'SignIn', new_residence_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

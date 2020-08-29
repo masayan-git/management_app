@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Apartments::SessionsController < Devise::SessionsController
+  rescue_from ActionController::InvalidAuthenticityToken do
+    redirect_to request.referrer, alert: "Your request has expired, please try again"
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

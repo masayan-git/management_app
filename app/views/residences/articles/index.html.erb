@@ -10,15 +10,13 @@
   </thead>
 
   <tbody>
-    <% @residences_articles.each do |residences_article| %>
+    <% @residences_articles.each do |article| %>
       <tr>
-        <td><%= residences_articles.title%></td>
-        <td><%= link_to 'Show', residences_article %></td>
+        <td><%= article.title%></td>
+        <td><%= link_to 'Show', residences_article_path(article.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Residences Article', new_residences_article_path %>

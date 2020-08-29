@@ -16,7 +16,7 @@
         <td><%= masters_article.title%>
         <td><%= link_to 'Show', [:masters, masters_article] %></td>
         <td><%= link_to 'Edit', edit_masters_article_path(masters_article) %></td>
-        <td><%= link_to 'Destroy', [:admins, admins_food], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [:masters, masters_article], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
