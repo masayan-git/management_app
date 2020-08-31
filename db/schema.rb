@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_074835) do
+ActiveRecord::Schema.define(version: 2020_08_31_025430) do
 
   create_table "apartments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -34,6 +34,26 @@ ActiveRecord::Schema.define(version: 2020_08_29_074835) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["master_id"], name: "index_articles_on_master_id"
+  end
+
+  create_table "chatroom_apartments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "master_id", null: false
+    t.bigint "apartment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["apartment_id"], name: "index_chatroom_apartments_on_apartment_id"
+    t.index ["master_id"], name: "index_chatroom_apartments_on_master_id"
+  end
+
+  create_table "chatroom_residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "master_id", null: false
+    t.bigint "residence_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["master_id"], name: "index_chatroom_residences_on_master_id"
+    t.index ["residence_id"], name: "index_chatroom_residences_on_residence_id"
   end
 
   create_table "masters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +109,10 @@ ActiveRecord::Schema.define(version: 2020_08_29_074835) do
   end
 
   add_foreign_key "articles", "masters"
+  add_foreign_key "chatroom_apartments", "apartments"
+  add_foreign_key "chatroom_apartments", "masters"
+  add_foreign_key "chatroom_residences", "masters"
+  add_foreign_key "chatroom_residences", "residences"
   add_foreign_key "notice_tags", "notices"
   add_foreign_key "notice_tags", "tags"
   add_foreign_key "notices", "masters"
