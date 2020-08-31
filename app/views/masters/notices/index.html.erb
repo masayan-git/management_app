@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Masters Notices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">お知らせ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @masters_notices.each do |masters_notice| %>
+      <tr>
+        <td><%= masters_notice.title %></td>
+        <td><%= link_to 'Show', [:masters,masters_notice] %></td>
+        <td><%= link_to 'Edit', edit_masters_notice_path(masters_notice) %></td>
+        <td><%= link_to 'Destroy', [:masters,masters_notice], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'お知らせ投稿ページ', new_masters_notice_path %>

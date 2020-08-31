@@ -1,0 +1,19 @@
+<%= form_with(model: [:masters,masters_tag], local: true) do |form| %>
+  <% if masters_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(masters_tag.errors.count, "error") %> prohibited this masters_tag from being saved:</h2>
+
+      <ul>
+        <% masters_tag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="actions">
+    <%= form.text_area :name %>
+    <%= form.submit %>
+  </div>
+<% end %>

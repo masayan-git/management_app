@@ -1,0 +1,25 @@
+<%= form_with model: [:masters, masters_notice], local: true do |form| %>
+  <% if masters_notice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(masters_notice.errors.count, "error") %> prohibited this masters_notice from being saved:</h2>
+
+      <ul>
+        <% masters_notice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.text_area :title %>
+    <%= form.text_area :content %>
+    <%= form.collection_check_boxes(:tag_ids, @tag, :id, :name, checked: @tags, include_hidden: false) do |tag| %>
+      <%= tag.label do %>
+        <%= tag.check_box %>
+        <%= tag.text  %>
+      <%end%>
+    <%end%>
+    <%= form.submit %>
+  </div>
+<% end %>

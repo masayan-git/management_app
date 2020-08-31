@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_masters_notice_path(@masters_notice) %> |
+<%= link_to 'Back', masters_notices_path %>
+
+<%= @masters_notice.title%>
+<p>通知するマンション名
+<% (@masters_notice.tags).each do |t| %>
+ <%= t.name %>
+<%end%></p>
+<%= @masters_notice.content%>

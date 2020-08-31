@@ -4,16 +4,21 @@ Rails.application.routes.draw do
   namespace :masters do
     resources :articles
     resources :tops, only: [:index]
+    resources :notices
+    resources :tags
+
   end
 
   namespace :residences do
     resources :articles, only: [:index, :show]
     resources :tops, only: [:index]
+    resources :notices, only: [:index, :show]
   end
 
   namespace :apartments do
     resources :articles, only: [:index, :show]
     resources :tops, only: [:index]
+    resources :notices, only: [:index, :show]
   end
 
   devise_for :masters, controllers: {
