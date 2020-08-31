@@ -33,17 +33,25 @@
 | Column       |Type        | Options                        |
 | ------------ |----------- | ------------------------------ |
 | name         | string     | null: false                    |
-| residence    | references | null: false, foreign_key: true |
-| master       | references | null: false, foreign_key: true |
-| message      | text       |                                |
-| image        | string     |                                |
-| move         | string     |                                |
+
+### Association
+has_many : residence_messages
+
+
+## residence_messages
+| Column             | Type       | Options                        |
+| ------------------ |----------- | ------------------------------ |
+| residence          | references | null: false, foreign_key: true |
+| master             | references | null: false, foreign_key: true |
+| chatroom_residence | references | null: false, foreign_key: true |
+| message            | text       |                                |
+| image              | string     |                                |
+| move               | string     |                                |
 
 ### Association
 belongs_to : master
 belongs_to : residence
-
-
+belongs_to : chatroom_residence
 
 ## apartments(user 入居者)
 
@@ -58,19 +66,30 @@ belongs_to : residence
 ### Association
 - has_one  : chatroom_apartment
 
-## chatroom_apartment(管理者とapartment入居者 １対１のチャットルーム)
+## chatroom_apartments(管理者とresidence入居者 １対１のチャットルーム)
+
 | Column       |Type        | Options                        |
 | ------------ |----------- | ------------------------------ |
 | name         | string     | null: false                    |
-| apartment    | references | null: false, foreign_key: true |
-| master       | references | null: false, foreign_key: true |
-| message      | text       |                                |
-| image        | string     |                                |
-| move         | string     |                                |
+
+### Association
+has_many : apartment_messages
+
+
+## apartment_messages
+| Column             | Type       | Options                        |
+| ------------------ |----------- | ------------------------------ |
+| apartment          | references | null: false, foreign_key: true |
+| master             | references | null: false, foreign_key: true |
+| chatroom_apartment | references | null: false, foreign_key: true |
+| message            | text       |                                |
+| image              | string     |                                |
+| move               | string     |                                |
 
 ### Association
 belongs_to : master
 belongs_to : apartment
+belongs_to : chatroom_apartment
 
 
 ## articles（コラム記事）

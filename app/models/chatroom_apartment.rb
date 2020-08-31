@@ -1,0 +1,2 @@
+class ChatroomApartment < ApplicationRecord
+end
