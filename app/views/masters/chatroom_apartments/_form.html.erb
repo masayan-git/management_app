@@ -1,0 +1,19 @@
+<%= form_with(model: [:masters,masters_chatroom_apartment], local: true) do |form| %>
+  <% if masters_chatroom_apartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(masters_chatroom_apartment.errors.count, "error") %> prohibited this masters_chatroom_apartment from being saved:</h2>
+
+      <ul>
+        <% masters_chatroom_apartment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.collection_select(:apartment_id, Apartment.all, :id, :room_num, {include_blank: "---"}) %>
+    
+    <%= form.submit %>
+  </div>
+<% end %>

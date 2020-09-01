@@ -41,8 +41,8 @@ has_many : residence_messages
 ## residence_messages
 | Column             | Type       | Options                        |
 | ------------------ |----------- | ------------------------------ |
-| residence          | references | null: false, foreign_key: true |
-| master             | references | null: false, foreign_key: true |
+| residence          | references |              foreign_key: true |
+| master             | references |              foreign_key: true |
 | chatroom_residence | references | null: false, foreign_key: true |
 | message            | text       |                                |
 | image              | string     |                                |
@@ -79,8 +79,8 @@ has_many : apartment_messages
 ## apartment_messages
 | Column             | Type       | Options                        |
 | ------------------ |----------- | ------------------------------ |
-| apartment          | references | null: false, foreign_key: true |
-| master             | references | null: false, foreign_key: true |
+| apartment          | references |              foreign_key: true |
+| master             | references |              foreign_key: true |
 | chatroom_apartment | references | null: false, foreign_key: true |
 | message            | text       |                                |
 | image              | string     |                                |

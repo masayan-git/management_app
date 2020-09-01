@@ -1,0 +1,2 @@
+module Masters::ChatsHelper
+end

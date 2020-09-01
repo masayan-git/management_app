@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_025430) do
+ActiveRecord::Schema.define(version: 2020_08_31_052853) do
+
+  create_table "apartment_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "apartment_id"
+    t.bigint "master_id"
+    t.bigint "chatroom_apartment_id", null: false
+    t.text "message"
+    t.string "image"
+    t.string "move"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["apartment_id"], name: "index_apartment_messages_on_apartment_id"
+    t.index ["chatroom_apartment_id"], name: "index_apartment_messages_on_chatroom_apartment_id"
+    t.index ["master_id"], name: "index_apartment_messages_on_master_id"
+  end
 
   create_table "apartments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -87,6 +101,20 @@ ActiveRecord::Schema.define(version: 2020_08_31_025430) do
     t.index ["master_id"], name: "index_notices_on_master_id"
   end
 
+  create_table "residence_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "residence_id"
+    t.bigint "master_id"
+    t.bigint "chatroom_residence_id", null: false
+    t.text "message"
+    t.string "image"
+    t.string "move"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_residence_id"], name: "index_residence_messages_on_chatroom_residence_id"
+    t.index ["master_id"], name: "index_residence_messages_on_master_id"
+    t.index ["residence_id"], name: "index_residence_messages_on_residence_id"
+  end
+
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "room_num", null: false
@@ -108,6 +136,9 @@ ActiveRecord::Schema.define(version: 2020_08_31_025430) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "apartment_messages", "apartments"
+  add_foreign_key "apartment_messages", "chatroom_apartments"
+  add_foreign_key "apartment_messages", "masters"
   add_foreign_key "articles", "masters"
   add_foreign_key "chatroom_apartments", "apartments"
   add_foreign_key "chatroom_apartments", "masters"
@@ -116,4 +147,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_025430) do
   add_foreign_key "notice_tags", "notices"
   add_foreign_key "notice_tags", "tags"
   add_foreign_key "notices", "masters"
+  add_foreign_key "residence_messages", "chatroom_residences"
+  add_foreign_key "residence_messages", "masters"
+  add_foreign_key "residence_messages", "residences"
 end

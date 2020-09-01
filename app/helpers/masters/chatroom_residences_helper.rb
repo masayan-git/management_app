@@ -1,0 +1,2 @@
+module Masters::ChatroomResidencesHelper
+end

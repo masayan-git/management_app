@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Masters Chatroom Apartments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @masters_chatroom_apartments.each do |masters_chatroom_apartment| %>
+      <tr>
+        <td><%= masters_chatroom_apartment.name%></td>
+        <td><%= link_to 'Show', masters_chatroom_apartment_path(masters_chatroom_apartment.id)%></td>
+        <%# <td><%= link_to 'Edit', edit_masters_chatroom_apartment_path(masters_chatroom_apartment) %>
+        <%# <td><%= link_to 'Destroy', masters_chatroom_apartment, method: :delete, data: { confirm: 'Are you sure?' }%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Masters Chatroom Apartment', new_masters_chatroom_apartment_path %>

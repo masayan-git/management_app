@@ -1,0 +1,2 @@
+class ApartmentMessage < ApplicationRecord
+end

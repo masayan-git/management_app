@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :tops, only: [:index]
     resources :notices
     resources :tags
-
+    resources :chats, only: [:index]
+    resources :chatroom_apartments
+    resources :chatroom_residences
   end
 
   namespace :residences do
