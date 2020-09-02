@@ -4,4 +4,7 @@ class Masters::ChatsController < Masters::ApplicationController
     @residence = ChatroomResidence.all
   end
 
+  def show
+  end
+
 end
