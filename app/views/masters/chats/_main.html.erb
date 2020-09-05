@@ -21,15 +21,18 @@
                     </div>
                   </div>
                   <!--②/左コメント終-->
-                <%elsif messages.master_id%>
+                <%elsif messages.master_id && messages.message %>
                   <!--③右コメント始-->
                   <div class="mycomment">
                     <p>
                     <%= messages.message %>
                     </p>
+                    
                   </div>
+                  <%= image_tag messages.image.variant(resize:'500x500'), class: 'img-fluid' if messages.image.attached? %>
                   <!--/③右コメント終-->
                 <%end%>
+                
               </div><!--/①LINE会話終了-->
             <%end%>
           <%end %>
@@ -39,9 +42,10 @@
   </div>
   <div class="row" style="height: 10vh;">
     <div class="row-fluid align-items-center input-group">
-      <% if @message%>  
+      <% if @message%>
         <%= form_with(model: [:masters,@room,@message],class: "row-fluid align-items-center input-group",local: true) do |f|%>
-          <%= f.text_field :message, class: 'col-10-fluid ml-1 form-control' %>
+          <%= f.file_field :image, class: 'col-2'%>
+          <%= f.text_field :message, class: 'col-8-fluid ml-1 form-control' %>
             <%# <input type="text" class="col-10-fluid ml-1 form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"> %>
           <div class="col-2-fluid ml-1 mr-1 input-group-append">
             <%= f.submit '送信', class: 'btn btn-success'%>
