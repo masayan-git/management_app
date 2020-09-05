@@ -5,6 +5,7 @@ class Masters::ChatroomApartmentsController < Masters::ApplicationController
   # GET /masters/chatroom_apartments.json
   def index
     @chatroom = ChatroomApartment.all
+    # binding.pry
   end
 
   # GET /masters/chatroom_apartments/1

@@ -26,6 +26,7 @@
 
 ### Association
 - has_one  : chatroom_residences
+- has_one  : residence_messages
 
 
 ## chatroom_residences(管理者とresidence入居者 １対１のチャットルーム)
@@ -65,6 +66,7 @@ belongs_to : chatroom_residence
 
 ### Association
 - has_one  : chatroom_apartment
+- has_one  : apartment_messages
 
 ## chatroom_apartments(管理者とresidence入居者 １対１のチャットルーム)
 
@@ -87,9 +89,9 @@ has_many : apartment_messages
 | move               | string     |                                |
 
 ### Association
-belongs_to : master
-belongs_to : apartment
-belongs_to : chatroom_apartment
+- belongs_to : master
+- belongs_to : apartment
+- belongs_to : chatroom_apartment
 
 
 ## articles（コラム記事）

@@ -1,0 +1,54 @@
+<div class="col-7" style="background-color: #7da4cd;">
+  <div class="row " style="background-color: lime; height: 10vh;">
+  </div>
+  <div class="row overflow-auto" style="background-color: #7da4cd; height: 80vh;">
+    <div class="col-12" style="height: 20vh;">
+      <div class="row">
+        <div class="col-12 ">
+          <% if @messages%>
+            <% @messages.each do |messages|%>
+              <div class="line-bc"><!--①LINE会話全体を囲う-->
+                    <!--②左コメント始-->
+                <% if messages.apartment_id%>
+                  <div class="balloon6">
+                    <div class="faceicon">
+                      <%= messages.apartment.name%><!--画像-->
+                    </div>
+                    <div class="chatting">
+                      <div class="says">
+                        <p><%= messages.message %></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--②/左コメント終-->
+                <%elsif messages.master_id%>
+                  <!--③右コメント始-->
+                  <div class="mycomment">
+                    <p>
+                    <%= messages.message %>
+                    </p>
+                  </div>
+                  <!--/③右コメント終-->
+                <%end%>
+              </div><!--/①LINE会話終了-->
+            <%end%>
+          <%end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 10vh;">
+    <div class="row-fluid align-items-center input-group">
+      <% if @message%>  
+        <%= form_with(model: [:masters,@room,@message],class: "row-fluid align-items-center input-group",local: true) do |f|%>
+          <%= f.text_field :message, class: 'col-10-fluid ml-1 form-control' %>
+            <%# <input type="text" class="col-10-fluid ml-1 form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"> %>
+          <div class="col-2-fluid ml-1 mr-1 input-group-append">
+            <%= f.submit '送信', class: 'btn btn-success'%>
+            <%# <button class="btn btn-success" type="button">送信</button> %>
+          </div>
+        <% end %>
+      <%end%>  
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module Masters::ApartmentMessagesHelper
+end

@@ -1,64 +1,12 @@
 
 <div class="container-fluid " style="height: 100vh; width: 100vw; background-color: gray;">
   <div class="row h-100">
-    <div class="col-3 " style="background-color: white;">
-      <div class="row h-25" style="background-color: #33FFFF;">
-        <%# <img class="rounded-circle" src="https://picsum.photos/200" alt="Circle image"> %>
-        
-      </div>
-      <div class="row align-items-center h-75" style="background-color: whiht;">
-        <div class="col-12 shadow-lg bg-white rounded d-flex justify-content-center align-items-center" style="height: 100px;">
-          <%= link_to "アパルトメント", masters_chatroom_apartments_path %>
-        </div>
-        <div class="col-12 shadow-lg bg-white rounded d-flex justify-content-center align-items-center" style="height: 100px;">
-          <%= link_to "レジデンス", masters_chatroom_residences_path %>
-        </div>
-          
-      </div>
-    </div>
-    <div class="col-2" style="background-color: teal;">
-      <div class="row d-flex align-items-center justify-content-center" style="background-color:#CCFF66; height:10vh;">
-        <div class="p-2">
-        ルーム一覧
-        </div>
-      </div>
-      <div class="row" style="background-color:#33FF00; height:90vh;">
-      <% if @chatroom%>
-        <% @chatroom.each do |room|%>
-        <div class="col-12-fluid d-flex align-items-center justify-content-center" style="background-color:#CCFFFF; height:10vh;">
-          <div class="row-fluid p-2 ">
-          <%= room.apartment.room_num %>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-        <div class="col-12-fluid d-flex align-items-center justify-content-center" style="background-color:#CCFFFF; height:10vh;">
-          <div class="row-fluid p-2 ">
-          102号室 山田花子
-          </div>
-        </div>
-      </div>
-      
-      
-    </div>
-    <div class="col-7" style="background-color: aqua;">
-      <div class="row " style="background-color: lime; height: 10vh;">
-      </div>
-      <div class="row " style="background-color: white; height: 80vh;">
-      </div>
-
-      <div class="row" style="background-color: silver; height: 10vh;">
-        <div class="row-fluid align-items-center input-group">
-          <input type="text" class="col-10-fluid ml-1 form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-          <div class="col-2-fluid ml-1 mr-1 input-group-append">
-            <button class="btn btn-success" type="button">送信</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "side"%>
+    <%= render "middle"%>
+    <%= render "main"%>
   </div>
 </div>
-<div>
+
 <!-- Button trigger modal -->
 <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
   Launch demo modal

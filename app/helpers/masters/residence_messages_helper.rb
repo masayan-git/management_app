@@ -1,0 +1,2 @@
+module Masters::ResidenceMessagesHelper
+end

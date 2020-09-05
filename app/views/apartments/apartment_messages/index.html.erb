@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apartments Apartment Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartments_apartment_messages.each do |apartments_apartment_message| %>
+      <tr>
+        <td><%= link_to 'Show', apartments_apartment_message %></td>
+        <td><%= link_to 'Edit', edit_apartments_apartment_message_path(apartments_apartment_message) %></td>
+        <td><%= link_to 'Destroy', apartments_apartment_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apartments Apartment Message', new_apartments_apartment_message_path %>

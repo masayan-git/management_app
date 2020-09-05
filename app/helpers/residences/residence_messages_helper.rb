@@ -1,0 +1,2 @@
+module Residences::ResidenceMessagesHelper
+end

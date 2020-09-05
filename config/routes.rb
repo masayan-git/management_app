@@ -7,8 +7,11 @@ Rails.application.routes.draw do
     resources :notices
     resources :tags
     resources :chats, only: [:index]
-    resources :chatroom_apartments
+    resources :chatroom_apartments do
+      resources :apartment_messages
+    end
     resources :chatroom_residences
+    resources :residence_messages
   end
 
   namespace :residences do
