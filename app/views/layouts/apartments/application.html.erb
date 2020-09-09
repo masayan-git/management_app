@@ -10,14 +10,34 @@
   </head>
 
   <body>
-    <h1> apartments </h1>
-    <% if apartment_signed_in? %>
-      <%= "LogOnUser: #{current_apartment.email}" %>
-      <%= link_to 'SignOut', destroy_apartment_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'SingUp', new_apartment_registration_path %>
-      <%= link_to 'SignIn', new_apartment_session_path %>
-    <% end %>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+        <div class="container">
+          <%= link_to "Apartments",apartments_tops_path,class: "navbar-brand"%>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <%= link_to 'チャット', apartments_chatroom_apartments_path,class: "nav-link"%>
+                  <span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'お知らせ', apartments_notices_path,class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'コラム記事', apartments_articles_path,class: "nav-link" %>
+
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_apartment_session_path, method: :delete, class: "nav-link"%>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

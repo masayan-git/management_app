@@ -48,7 +48,7 @@ class Masters::ApartmentMessagesController < Masters::ApplicationController
   def update
     respond_to do |format|
       if @masters_apartment_message.update(masters_apartment_message_params)
-        format.html { redirect_to [:masters,@masters_apartment_message], notice: 'Apartment message was successfully updated.' }
+        format.html { redirect_to action: :index, notice: 'Apartment message was successfully updated.' }
         format.json { render :show, status: :ok, location: @masters_apartment_message }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class Masters::ApartmentMessagesController < Masters::ApplicationController
   def destroy
     @masters_apartment_message.destroy
     respond_to do |format|
-      format.html { redirect_to masters_apartment_messages_url, notice: 'Apartment message was successfully destroyed.' }
+      format.html { redirect_to action: :index, notice: 'Apartment message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

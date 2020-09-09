@@ -1,25 +1,43 @@
-<%= form_with model: [:masters, masters_notice], local: true do |form| %>
-  <% if masters_notice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(masters_notice.errors.count, "error") %> prohibited this masters_notice from being saved:</h2>
-
-      <ul>
-        <% masters_notice.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <%= form_with model: [:masters, @masters_notice], local: true do |form| %>
+        <% if @masters_notice.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@masters_notice.errors.count, "error") %> prohibited this masters_notice from being saved:</h2>
+            <ul>
+              <% @masters_notice.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <h1>お知らせ 投稿</h1>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
+          </div>
+          <%= form.text_field :title, class: "form-control"%>
+          <%# <input type="text" class="form-control"> %>
+        </div>
+        <p class="lead">
+          <div class="field">
+            <%= form.label :content %>
+            <%= form.rich_text_area :content %>
+          </div>
+          <%= form.collection_check_boxes(:tag_ids, @tag, :id, :name, checked: @tags, include_hidden: false) do |tag| %>
+            <%= tag.label do %>
+              <%= tag.check_box %>
+              <%= tag.text  %>
+            <%end%>
+          <%end%>
+          <%= form.submit '投稿する',class: "btn btn-primary btn-lg btn-block"%>
+        </p>
+      <% end %>
+        
+        <%# <p class="lead">Scroll down...</p> %>
+        <div style="height: 700px"></div>
+        <p class="lead mb-0"></p>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.text_area :title %>
-    <%= form.text_area :content %>
-    <%= form.collection_check_boxes(:tag_ids, @tag, :id, :name, checked: @tags, include_hidden: false) do |tag| %>
-      <%= tag.label do %>
-        <%= tag.check_box %>
-        <%= tag.text  %>
-      <%end%>
-    <%end%>
-    <%= form.submit %>
   </div>
-<% end %>
+</div>

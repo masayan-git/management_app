@@ -1,0 +1,2 @@
+module Residences::ChatroomResidencesHelper
+end

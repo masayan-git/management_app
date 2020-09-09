@@ -9,7 +9,11 @@
     <% @chatroom.each do |room|%>
     <div class="col-12-fluid d-flex align-items-center justify-content-center" style="background-color:#CCFFFF; height:10vh;">
       <div class="row-fluid p-2 "> 
-        <%= link_to "#{room.name} #{room.apartment.name}", masters_chatroom_apartment_apartment_messages_path(room)%>
+        <% if room.attributes.has_key?("apartment_id")%>
+          <%= link_to "#{room.name} #{room.apartment.name}", masters_chatroom_apartment_apartment_messages_path(room)%>
+        <% elsif room.attributes.has_key?("residence_id") %>
+          <%= link_to "#{room.name} #{room.residence.name}", masters_chatroom_residence_residence_messages_path(room)%>
+        <%end%>
       </div>
     </div>
     <% end %>

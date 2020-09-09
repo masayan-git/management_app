@@ -1,6 +1,17 @@
-<p id="notice"><%= notice %></p>
 
-<%= @apartments_article.title %>
-<%= @apartments_article.content %>
-
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="font-weight-light">
+        <%= @apartments_article.title%>
+      </h1>
+      <p class="lead">
+        <%= @apartments_article.content%>
+      </p>
+      <%# <p class="lead">Scroll down...</p> %>
+      <div style="height: 700px"></div>
+      <p class="lead mb-0">以上</p>
+    </div>
+  </div>
+</div>
 <%= link_to 'Back', apartments_articles_path %>

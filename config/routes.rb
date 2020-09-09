@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-
+  
   namespace :masters do
     resources :articles
     resources :tops, only: [:index]
@@ -8,23 +8,32 @@ Rails.application.routes.draw do
     resources :tags
     resources :chats, only: [:index]
     resources :chatroom_apartments do
-      resources :apartment_messages
+      resources :apartment_messages,only: [:index, :new, :create, :destroy,]
     end
-    resources :chatroom_residences
-    resources :residence_messages
+    resources :chatroom_residences do
+      resources :residence_messages,only: [:index, :new, :create, :destroy,]
+    end
   end
 
   namespace :residences do
     resources :articles, only: [:index, :show]
     resources :tops, only: [:index]
     resources :notices, only: [:index, :show]
+    resources :chatroom_residences do
+      resources :residence_messages,only: [:index, :new, :create, :destroy,]
+    end
   end
 
   namespace :apartments do
+    root to: 'tops#index'
     resources :articles, only: [:index, :show]
     resources :tops, only: [:index]
     resources :notices, only: [:index, :show]
+    resources :chatroom_apartments do
+      resources :apartment_messages,only: [:index, :new, :create, :destroy,]
+    end
   end
+
 
   devise_for :masters, controllers: {
     sessions:        'masters/sessions',

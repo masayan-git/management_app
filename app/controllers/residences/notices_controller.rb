@@ -6,7 +6,7 @@ class Residences::NoticesController < Residences::ApplicationController
   def index
     a = NoticeTag.where(tag_id:3).or(NoticeTag.where(tag_id:1))
     notice = a.map{|n|n.notice.id}
-    @apartments_notices = Notice.find(notice)
+    @residences_notices = Notice.find(notice)
   end
 
   # GET /residences/notices/1

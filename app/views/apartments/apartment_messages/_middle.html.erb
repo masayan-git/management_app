@@ -1,0 +1,23 @@
+<div class="col-2" style="background-color: teal;">
+  <div class="row d-flex align-items-center justify-content-center" style="background-color:#CCFF66; height:10vh;">
+    <div class="p-2">
+    ルーム一覧
+    </div>
+  </div>
+  <div class="row" style="background-color:#33FF00; height:90vh;">
+  <% if @chatroom%>
+    <% @chatroom.each do |room|%>
+    <div class="col-12-fluid d-flex align-items-center justify-content-center" style="background-color:#CCFFFF; height:10vh;">
+      <div class="row-fluid p-2 "> 
+        <%# <%binding.pry%> 
+        <% if room.attributes.has_key?("apartment_id")%>
+          <%= link_to "#{room.master.name}", apartments_chatroom_apartment_apartment_messages_path(room.id)%>
+        <% elsif room.attributes.has_key?("residence_id") %>
+          <%= link_to "#{room.master.name}", residences_chatroom_residence_residence_messages_path(room)%>
+        <%end%>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

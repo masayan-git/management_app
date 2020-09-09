@@ -10,14 +10,34 @@
   </head>
 
   <body>
-    <h1> residences </h1>
-    <% if residence_signed_in? %>
-      <%= "LogOnUser: #{current_residence.email}" %>
-      <%= link_to 'SignOut', destroy_residence_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'SingUp', new_residence_registration_path %>
-      <%= link_to 'SignIn', new_residence_session_path %>
-    <% end %>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+        <div class="container">
+          <%= link_to "Residences",residences_tops_path,class: "navbar-brand"%>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <%= link_to 'チャット', residences_chatroom_residences_path,class: "nav-link"%>
+                  <span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'お知らせ', residences_notices_path,class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'コラム記事', residences_articles_path,class: "nav-link" %>
+
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_residence_session_path, method: :delete, class: "nav-link"%>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

@@ -33,7 +33,7 @@ class Masters::NoticesController < Masters::ApplicationController
   def create
     # binding.pry
     @masters_notice = NoticesTag.new(masters_notice_params)
-# binding.pry
+    # binding.pry
     respond_to do |format|
       if @masters_notice.save
         format.html { redirect_to masters_notices_path, notice: 'Notice was successfully created.' }

@@ -843,6 +843,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@fortawesome/fontawesome-free@^5.14.0":
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.14.0.tgz#a371e91029ebf265015e64f81bfbf7d228c9681f"
+  integrity sha512-OfdMsF+ZQgdKHP9jUbmDcRrP0eX90XXrsXIdyjLbkmSBzmMXPABB8eobUJtivaupucYaByz6WNe1PI1JuYm3qA==
+
 "@npmcli/move-file@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@npmcli/move-file/-/move-file-1.0.1.tgz#de103070dac0f48ce49cf6693c23af59c0f70464"
@@ -854,6 +859,13 @@
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.3.tgz#722b4b639936129307ddbab3a390f6bcacf3e7bc"
   integrity sha512-I01hgqxxnOgOtJTGlq0ZsGJYiTEEiSGVEGQn3vimZSqEP1HqzyFNbzGTq14Xdyeow2yGJjygjoFF1pmtE+SQaw==
+
+"@rails/actiontext@^6.0.3-2":
+  version "6.0.3-2"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.3-2.tgz#19739f5c58fed879fedcd98039baf2be0bece52d"
+  integrity sha512-X7e7mDFeQZoTyPn+Dtu+dhwWfr/9I/h+pVhsAKCithCslcefuk5q4vmlfKWyIaKYNF5j821UdR3gfI8Nwr8Wjg==
+  dependencies:
+    "@rails/activestorage" "^6.0.0-alpha"
 
 "@rails/activestorage@^6.0.0-alpha":
   version "6.0.3"
@@ -7093,6 +7105,11 @@ trim-newlines@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-1.0.0.tgz#5887966bb582a4503a41eb524f7d35011815a613"
   integrity sha1-WIeWa7WCpFA6QetST301ARgVphM=
+
+trix@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-1.2.4.tgz#8b8f8ea58c2605ad3d04a3b82d60a994576e33a5"
+  integrity sha512-S6YUUaaHngNbW1jzBV3MQ35pisTV/x5yKlNZrAf8exkOnHsTj+2OJHx2jBLqRQEtpWHpg85pHjo2A7dKK2RQbQ==
 
 "true-case-path@^1.0.2":
   version "1.0.3"

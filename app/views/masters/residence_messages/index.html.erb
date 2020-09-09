@@ -1,25 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Masters Residence Messages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @masters_residence_messages.each do |masters_residence_message| %>
-      <tr>
-        <td><%= link_to 'Show', masters_residence_message %></td>
-        <td><%= link_to 'Edit', edit_masters_residence_message_path(masters_residence_message) %></td>
-        <td><%= link_to 'Destroy', masters_residence_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Masters Residence Message', new_masters_residence_message_path %>
+<div class="container-fluid " style="height: 100vh; width: 100vw; background-color: gray;">
+  <div class="row h-100">
+    <%= render "masters/chats/side"%>
+    <%= render "masters/chats/middle"%>
+    <%= render "masters/chats/main"%>
+  </div>
+</div>

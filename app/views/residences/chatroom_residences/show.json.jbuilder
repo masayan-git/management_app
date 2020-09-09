@@ -1,0 +1,1 @@
+json.partial! "residences_chatroom_residences/residences_chatroom_residence", residences_chatroom_residence: @residences_chatroom_residence

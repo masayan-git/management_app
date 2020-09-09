@@ -4,7 +4,7 @@ class Apartments::TopsController < Apartments::ApplicationController
   # GET /apartments/tops
   # GET /apartments/tops.json
   def index
-  #   @apartments_tops = Apartments::Top.all
+    # @room = ChatroomApartment.where(apartment_id: current_apartment.id)
   end
 
   # # GET /apartments/tops/1

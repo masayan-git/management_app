@@ -9,30 +9,80 @@
             <% @messages.each do |messages|%>
               <div class="line-bc"><!--①LINE会話全体を囲う-->
                     <!--②左コメント始-->
-                <% if messages.apartment_id%>
-                  <div class="balloon6">
-                    <div class="faceicon">
-                      <%= messages.apartment.name%><!--画像-->
-                    </div>
-                    <div class="chatting">
-                      <div class="says">
-                        <p><%= messages.message %></p>
+                <% if messages.attributes.has_key?("residence_id") %>
+                  <%# <% binding.pry%> 
+                  <% if messages.residence_id != nil%>
+                    <% if messages.message != ""%>
+                      <div class="balloon6">
+                        <div class="faceicon">
+                        <%# <%binding.pry%> 
+                          <%= messages.residence.name%><!--画像-->
+                        </div>
+                        <div class="chatting">
+                          <div class="says">
+                            <p><%= messages.message %></p>
+                          </div>
+                        </div>
+                      </div>
+                    <%end%>
+                    <%= image_tag messages.image.variant(resize:'500x500'), class: 'img-fluid' if messages.image.attached? %>
+                    <%= video_tag rails_blob_path(messages.move),size:'500x500',controls:true if messages.move.attached?%>
+                    <%= l messages.created_at%>
+                    <%= link_to '削除', residences_chatroom_residence_residence_message_path(id: messages.id), method: :delete, data: { confirm: '削除しますか?' } %>
+                  
+                    <!--②/左コメント終-->
+                  <%elsif messages.master_id  %>
+                      <!--③右コメント始-->
+                    <% if messages.message != ""%>
+                      <div class="mycomment">
+                        <p>
+                        <%= messages.message %>
+                        </p>
+                      </div>
+                    <%end%>
+                    <%= image_tag messages.image.variant(resize:'500x500'), class: 'img-fluid' if messages.image.attached? %>
+                    <%= video_tag rails_blob_path(messages.move),size:'500x500',controls:true if messages.move.attached?%>
+                    <%= l messages.created_at%>
+                    <%= link_to '削除', masters_chatroom_residence_residence_message_path(id: messages.id), method: :delete, data: { confirm: '削除しますか?' } %>
+                    <!--/③右コメント終-->
+                  <%end%>
+                <%end%>
+                <% if messages.attributes.has_key?("apartment_id")%>
+                  <% if messages.apartment_id != nil%>
+                    <div class="balloon6">
+                      <div class="faceicon">
+                        <%= messages.apartment.name%><!--画像-->
+                      </div>
+                      <div class="chatting">
+                        <div class="says">
+                          <p><%= messages.message %></p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <!--②/左コメント終-->
-                <%elsif messages.master_id && messages.message %>
-                  <!--③右コメント始-->
-                  <div class="mycomment">
-                    <p>
-                    <%= messages.message %>
-                    </p>
+                    <%= image_tag messages.image.variant(resize:'500x500'), class: 'img-fluid' if messages.image.attached? %>
+                    <%= video_tag rails_blob_path(messages.move),size:'500x500',controls:true if messages.move.attached?%>
+                    <%= l messages.created_at%>
+                    <%= link_to "削除", masters_chatroom_apartment_apartment_message_path(id: messages.id), method: :delete, data: { confirm: '削除しますか?' } %>
                     
-                  </div>
-                  <%= image_tag messages.image.variant(resize:'500x500'), class: 'img-fluid' if messages.image.attached? %>
-                  <!--/③右コメント終-->
+                    <!--②/左コメント終-->
+                  
+                  <%elsif messages.master_id  %>
+                      <!--③右コメント始-->
+                    <% if messages.message != ""%>
+                      <div class="mycomment">
+                        <p>
+                        <%= messages.message %>
+                        </p>
+                      </div>
+                    <%end%>
+                    
+                    <%= image_tag messages.image.variant(resize:'500x500'), class: 'img-fluid' if messages.image.attached? %>
+                    <%= video_tag rails_blob_path(messages.move),size:'500x500',controls:true if messages.move.attached?%>
+                    <%= l messages.created_at%>
+                    <%= link_to "削除", masters_chatroom_apartment_apartment_message_path(id: messages.id), method: :delete, data: { confirm: '削除しますか?' }%>
+                    <!--/③右コメント終-->
+                  <%end%>
                 <%end%>
-                
               </div><!--/①LINE会話終了-->
             <%end%>
           <%end %>
@@ -44,8 +94,15 @@
     <div class="row-fluid align-items-center input-group">
       <% if @message%>
         <%= form_with(model: [:masters,@room,@message],class: "row-fluid align-items-center input-group",local: true) do |f|%>
-          <%= f.file_field :image, class: 'col-2'%>
-          <%= f.text_field :message, class: 'col-8-fluid ml-1 form-control' %>
+          <%= f.label :move, class: "col-1 label" do%>
+            <%= icon('far','file-video fa-3x')%>
+            <%= f.file_field :move, class: 'file_field'%>
+          <%end%>  
+          <%= f.label :image, class: "col-1 label" do%>
+            <%= icon('far','image fa-3x')%>
+            <%= f.file_field :image, class: 'file_field'%>
+          <%end%>
+        <%= f.text_field :message, class: 'col-8-fluid ml-1 form-control' %>
             <%# <input type="text" class="col-10-fluid ml-1 form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"> %>
           <div class="col-2-fluid ml-1 mr-1 input-group-append">
             <%= f.submit '送信', class: 'btn btn-success'%>
