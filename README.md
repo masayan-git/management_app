@@ -83,7 +83,22 @@ masterアカウントでログインすると全ての機能が利用できま�
 ### ER図
 ![オリジナルアプリ修正後](https://user-images.githubusercontent.com/68589347/92707410-3a77ee80-f390-11ea-8105-a25b78d605c2.png)
 
+### ローカルでの動作方法
 
+```ruby 
+MacOS Catalina 10.15.5
+ruby 2.6.5
+Rails 6.0.3.2
+
+%  git clone https://github.com/masayan-git/management_app.git
+%  cd management_app
+%  bundle install
+%  rails db:create
+%  rails db:migrate
+%  rails s
+→ http://localhost:3000
+
+```
 
 ## masters(管理者)
 
