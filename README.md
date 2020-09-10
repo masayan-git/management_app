@@ -7,12 +7,15 @@
 master(管理者用)
 - email: master@gmail.com
 - pass : 11111111
+
 apartment(入居者用)
 - email: apartment@gmail.com
 - pass : 11111111
+
 residence(入居者用)
 - email: residence@gmail.com
 - pass : 11111111
+
 
 ## 利用方法
 masterアカウントでログインすると全ての機能が利用できます。
@@ -40,7 +43,7 @@ masterアカウントでログインすると全ての機能が利用できま�
 #### チャット機能
 マンション入居から居室の設備に不備があった場合、通常管理者が入居者宅へ訪問し現状を把握する必要があるが、チャット機能を利用すれば現地訪問することなく現状把握ができる。
 #### チャット 画像 動画投稿機能
-画像、動画を投稿することでより詳細に状況を把握できる。
+画像、動画を投稿できることで管理者が詳細に状況を把握できる。
 例）不良設備の型式、修理できそうな不備なのか、取り替えが必要な不備なのか等。
 #### コラム記事投稿機能
 - マンション運営の円滑化
@@ -63,6 +66,8 @@ masterアカウントでログインすると全ての機能が利用できま�
 
 
 
+
+
 ## masters(管理者)
 
 | Column   |Type    | Options     |
@@ -73,7 +78,7 @@ masterアカウントでログインすると全ての機能が利用できま�
 
 ### Association
 - has_many : chatroom_residences
-- has_many : chatroom_apartment
+- has_many : chatroom_apartments
 - has_many : articles
 - has_many : notices
 
