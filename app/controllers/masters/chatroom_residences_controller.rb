@@ -1,4 +1,4 @@
-class Masters::ChatroomResidencesController < ApplicationController
+class Masters::ChatroomResidencesController < Masters::ApplicationController
   before_action :set_masters_chatroom_residence, only: [:show, :edit, :update, :destroy]
 
   # GET /masters/chatroom_residences

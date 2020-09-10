@@ -1,4 +1,4 @@
-class Masters::ResidenceMessagesController < ApplicationController
+class Masters::ResidenceMessagesController < Masters::ApplicationController
   before_action :set_masters_residence_message, only: [:show, :edit, :update, :destroy]
 
   # GET /masters/residence_messages
