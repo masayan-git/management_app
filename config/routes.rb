@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   end
 
   namespace :apartments do
-    root to: 'tops#index'
     resources :articles, only: [:index, :show]
     resources :tops, only: [:index]
     resources :notices, only: [:index, :show]

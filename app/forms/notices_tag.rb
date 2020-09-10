@@ -3,7 +3,7 @@ class NoticesTag
   attr_accessor :title, :tag_ids, :content, :master_id
 
   def save
-    binding.pry
+    # binding.pry
     notice = Notice.create(title: title, content: content, master_id: master_id)
     # tags = Tag.where(name: tag).first_or_initialize
     # tags.save
