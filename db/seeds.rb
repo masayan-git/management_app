@@ -5,8 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Master.create!(email:'master@gmail.com',password:'11111111',confirmed_at:Time.now)
+# coding: utf-8
+master = Master.create!(name:'家主',email:'master@gmail.com',password:'11111111')
+apartment = Apartment.create!(name:'アパルトメント太郎', room_num:'101', phone_number:'09000000000',email:'apartment@gmail.com',password:'11111111')
+residence = Residence.create!(name:'レジデンス花子', room_num:'101', phone_number:'09012345678', email:'residence@gmail.com',password:'11111111')
 
-Apartment.create!(email:'apartment@gmail.com',password:'11111111',confirmed_at:Time.now)
+apartment_tag = Tag.create!(name:'apartment')
+residence_tag = Tag.create!(name:'residence')
+all_tag = Tag.create!(name:'all')
 
-Residence.create!(email:'residence@gmail.com',password:'11111111',confirmed_at:Time.now)
+chatroom_apartment = ChatroomApartment.create!(name:apartment.name,master_id:master.id,apartment_id:apartment.id)
+
+

@@ -62,3 +62,7 @@ gem 'image_processing', '~> 1.2'
 gem 'carrierwave'
 gem 'streamio-ffmpeg'
 gem 'font-awesome-sass', '~> 5.4.1'
+
+group :production do
+  gem 'rails_12factor'
+end
