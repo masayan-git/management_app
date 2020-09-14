@@ -7,6 +7,10 @@
 [ManagementApp](https://manegement-app.herokuapp.com/ "ManagementApp")
 
 ## テスト用アカウント
+Basic認証
+- id: admin
+- pass : 2222
+
 master(管理者用)
 - email: master@gmail.com
 - pass : 11111111
