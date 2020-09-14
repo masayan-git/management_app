@@ -77,7 +77,7 @@ masterアカウントでログインすると全ての機能が利用できま�
 本アプリにチャットポッドを実装し入居者からのよくある質問に対応。
 例）家賃の振り込み先及び支払い方法、粗大ゴミの出し方、退去に関する手続き方法など。
 
-#### 機能動画
+#### 機能動画 機能全ての動画です
 ![オリジナルアプリショート](https://user-images.githubusercontent.com/68589347/92718297-99436500-f39c-11ea-9aa2-b7b3ae6eea16.gif)
 
 ### ER図
@@ -95,6 +95,7 @@ Rails 6.0.3.2
 %  bundle install
 %  rails db:create
 %  rails db:migrate
+%  rails db:seed
 %  rails s
 → http://localhost:3000
 

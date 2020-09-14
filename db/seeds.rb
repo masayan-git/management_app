@@ -14,6 +14,7 @@ apartment_tag = Tag.create!(name:'apartment')
 residence_tag = Tag.create!(name:'residence')
 all_tag = Tag.create!(name:'all')
 
-chatroom_apartment = ChatroomApartment.create!(name:apartment.name,master_id:master.id,apartment_id:apartment.id)
+chatroom_apartment = ChatroomApartment.create!(name:apartment.room_num,master_id:master.id,apartment_id:apartment.id)
+chatroom_residence = ChatroomResidence.create!(name:residence.room_num,master_id:master.id,residence_id:apartment.id)
 
 
