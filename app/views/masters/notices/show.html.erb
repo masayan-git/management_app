@@ -1,11 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%# <p id="notice"><%= notice %>
 
-<%= link_to 'Edit', edit_masters_notice_path(@masters_notice) %> |
-<%= link_to 'Back', masters_notices_path %>
 
-<%= @masters_notice.title%>
-<p>通知するマンション名
-<% (@masters_notice.tags).each do |t| %>
- <%= t.name %>
-<%end%></p>
-<%= @masters_notice.content%>
+
+<%# <%= @masters_notice.title%> 
+<%# <p>通知するマンション名 %>
+<%# <% (@masters_notice.tags).each do |t| %> 
+ <%# <%= t.name %> 
+<%# <%end%>
+
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="font-weight-light">
+        <%= @masters_notice.title%>
+      </h1>
+      <p class="lead">
+        <%= @masters_notice.content%>
+      </p>
+      <%# <p class="lead">Scroll down...</p> %>
+      <div style="height: 700px"></div>
+      <p class="lead mb-0">以上</p>
+      <%= link_to 'Edit', edit_masters_notice_path(@masters_notice) %> |
+      <%= link_to 'Back', masters_notices_path %>
+    </div>
+  </div>
+</div>
