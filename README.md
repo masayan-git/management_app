@@ -3,9 +3,6 @@
 ## 概要
 マンションの管理運営ができるアプリです。
 
-## URL
-[ManagementApp](https://manegement-app.herokuapp.com/ "ManagementApp")
-
 ## テスト用アカウント
 Basic認証
 - id: admin
